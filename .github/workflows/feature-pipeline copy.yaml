@@ -6,26 +6,10 @@ on:
       - "**"
   workflow_dispatch:
 
-permissions:
-  contents: read
-  statuses: write
-  security-events: read
-
 jobs:
   feature-pipeline:
-    if: github.ref != 'refs/heads/main'
     uses: eswarreddy546/reusable-workflow-actions/.github/workflows/workflow-feature-nodeja-pipeline.yaml@main
     with:
       project: roboshop
       component: catalogue
       environment: dev
-    secrets: inherit
-
-  dev-pipeline:
-    if: github.ref == 'refs/heads/main'
-    uses: eswarreddy546/reusable-workflow-actions/.github/workflows/workflow-dev-nodeja-pipeline.yaml@main
-    with:
-      project: roboshop
-      component: catalogue
-      environment: dev
-    secrets: inherit
