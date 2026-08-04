@@ -6,6 +6,10 @@ on:
       - "**"
   workflow_dispatch:
 
+permissions:
+  contents: read
+  statuses: write
+
 jobs:
   feature-pipeline:
     uses: eswarreddy546/reusable-workflow-actions/.github/workflows/workflow-feature-nodeja-pipeline.yaml@main
